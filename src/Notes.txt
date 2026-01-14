@@ -1,0 +1,908 @@
+DAY 3---------------------------------------------
+
+# CONTROL STATEMENTS
+Types :- 1) Decision making statement  2) Looping statement 3) Jumping statement
+
+Types of Decision making statement :- 1) if 2) if else 3) if else ladder 4) switch 5) nested if
+
+Types of Looping statement :- 1) do while (exit checking loop) 2) while (entry checking loop) 3) for (entry checking loop) 4) for each (used with collections)
+
+Types of Jumping statement :- 1) Break  2) continue  3) return
+
+Switch case :- 
+switch( value / var / expression ) 
+{
+    case value / expression : // to avoid ambiguity while compilation we do not use variable in cases 
+    {} break;
+
+    case value / expression : 
+    {} break;
+
+    default : 
+    {
+    }
+}
+
+Few datatypes are there which should not be used inside case (it is not forbidden):- boolean, float , double, long ---> this is IT convention
+
+
+Software Engineering 
+
+Requirements are gathered by business analyst
+
+principles of software Engineering
+1) Modularity
+2) Abstraction
+3) Encapsulation
+4) Separation of concerns
+5) Reusability
+6) Maintainability :- fixing any issue is done by server engineer (server eng, n/w eng, tester , developer)
+7) Scalability
+
+Attributes of SE
+1) Maintainability
+2) portability (the product must support any enviornment)
+3) Scalability
+4) Security
+
+Day 4----------------------------------
+
+# Looping statements
+Entry checking :- For(all the three arguments inside the for are not mandetory to write , but semicolon is mandetory, if u do not write them then the for loop runs infinite times) , While 
+
+Exit checking :- do while (runs at least 1 time no matter if the condition is true/false)
+
+
+How to stop the infinite loops 
+2 ways :- 1) Jump statement 2) Without using jumping statement
+
+1) jump statement :- break , return , continue
+2) Without :- use inbuild method , System.exit(0); inbuild method needs an integer value
+
+
+oops and collection framework project will be given
+
+# For loops
+for( ;  ; ){
+    // statement
+    // infinite loop 
+    // to terminate use System.exit(0)
+}
+
+int i=0;
+for( ; i<=5 ; i++) {
+
+}
+
+# Conversion between int and char
+In Java, a char is internally stored as an unsigned integer (Unicode value).
+So when you compare char with int, you are comparing numbers, not characters.
+
+Note:- Automatic type promotion of char during comparison
+char c = 'B';
+int x = 66;
+
+Note:- When char is compared with any numeric type, char is promoted to int.
+System.out.println(c == x);  // true
+
+Day 5---------------------------------------------------
+# Methods :- Block of memory which stores set of instructions which perform a particular operation
+
+Method Terminology :- 
+1) Method Signature :- method name followed by formal arguments
+2) Method Declaration :- accessModifier Modifier returnType methodName (Formal Arguments)
+3) Method Definition :- Method Declaration + Method block(Implementation / Body)
+
+Access Modifiers :- It is a responsibility to provide accessibility to the members 
+Modifier :- A modifier is a keyword that changes the meaning or behavior of a class, method, field (variable), or constructor.Ex:- static, final, abstract, synchronized, volatile, transient, native, strictfp, sealed, etc.
+
+The return type can also be class(user defined, Inbuild class for ex- String)
+
+# User defined Methods 
+Non parameterized:- 
+1) method without arguments and without return statement
+[AM] [M] void method(){ }
+2) method without Argument , but here with return statement
+[AM] [M] datatype/user defined class/Inbuild class obj methodName () { } , return statement is mandetory
+
+Parameterized method:- 
+1) method with arguments, but here without return statement
+[AM] [M] void methodName(datatype var / userdefined class obj / Inbuilt class obj)
+{
+    int a = 10
+}
+
+inner class / unnamed classes
+
+Can you call a method inside a method  parameters:- YES 
+Syntax:- methodName( method(), int a)
+
+2) method with arguments , with a return statement
+[AM] [M] datatype/user defined class/Inbuild class obj methodName(datatype/user defined class/Inbuild class obj) 
+{
+    return statement;
+}
+
+# Method Shining:- it is used to call another method from inside method
+
+Incompatible types error 
+Cannot find Symbol error
+
+Day 8--------------------------------------------------------
+ARRAYS
+characterstics :- 
+1) fixed in size
+2) stores homogeeous elements/values
+3) It can accept duplicate elements
+4) cannot re modify the size of the array after decalaration
+5) Indexing in array starts with 0
+
+STATIC INITIALIZERS------------------------------------------
+
+We can also call class members with the help of static initializers without needing main method but we have to write the main method signature to start execution 
+
+Advantage of static initializers 
+
+Static members ---> is direct access you do not need to create object to have access 
+Non static members ---> is not direct access ,you need to create object reference , non static is an advantage  when you want to store and maintain different values 
+
+
+CLASS and OBJECTS--------------------------
+
+Attributes of objects ---> the data members / instance variables / non static variables 
+BEHAVIOUR of objects :- methods which operate on that data 
+
+non static members ---> variables , methods , initializers , constructor
+static members ---> variables , methods , initializers
+
+static members are also called as class members 
+non static members are also called as instance members
+
+instanciation ---> address for the class 
+new keyword is used to generate a block of memory inside heap area
+
+Heap area
+
+class Car{
+   (Object reference) Car c = new Car(); (Anonymous object)  new Car() generate a block of memory inisde heap
+}
+
+inner class
+
+without object reference you can also access the class members but there is a drawback 
+new Car().member 
+new Car().member 
+every time you write anonymous object it genreates a new unique address
+
+multi line non static initializer ---> when object is created then it is called by automatically 
+
+non static variables --> fields, data members , instance variables, object variables , attributes
+non static methods --> behaviour , instance methods
+
+Order of execution 
+MLSI --> MLNSI ---> constructor
+(multi line instance initializer)
+
+non static members supports code reusability and also known as multi copy 
+every time you create a object ref Multi line nsi will be called
+
+constructor initializes the attributes/non static variables with default values  
+
+Constructor Chaining ----------------------------
+    What is constructor chaining?
+    Constructor chaining is the process of calling one constructor from another constructor—either:
+        within the same class using this(), or
+        from a parent class using super()
+    The purpose is to reuse initialization logic and ensure proper object construction order.
+
+    (1) Constructor chaining means calling one constructor from another.
+    (2) this() is used to call a constructor of the same class.
+    (3) super() is used to call a constructor of the parent class.
+    (4) Only one constructor call is allowed per constructor.
+    (5) this() or super() must be the first statement.
+    (6) Constructor chaining ensures proper initialization order. 
+
+Method Chaining -----------------------------------
+    What is method chaining?
+    Method chaining is the technique of calling multiple methods on the same object in a single statement, where each method returns the current object to allow the next method to be called.
+
+    How It Works
+    The key principle is that each method returns this (the current object), allowing you to immediately call another method on the returned object.
+
+    public class Student {
+        private String name;
+        private int age;
+        private String course;
+        
+        // Methods return 'this' to enable chaining
+        public Student setName(String name) {
+            this.name = name;
+            return this;  // Returns the current object
+        }
+        
+        public Student setAge(int age) {
+            this.age = age;
+            return this;
+        }
+        
+        public Student setCourse(String course) {
+            this.course = course;
+            return this;
+        }
+        
+        public void display() {
+            System.out.println("Name: " + name + ", Age: " + age + ", Course: " + course);
+        }
+    }
+
+    // Usage - Method Chaining
+    public class Main {
+        public static void main(String[] args) {
+            Student student = new Student();
+            
+            // Without method chaining
+            student.setName("John");
+            student.setAge(20);
+            student.setCourse("Computer Science");
+            student.display();
+            
+            // With method chaining - cleaner and more readable
+            student.setName("Alice")
+                .setAge(22)
+                .setCourse("Engineering")
+                .display();
+        }
+    }
+
+default constructor is used to initialize the current class attributes / present class attributes
+you can initialize both static and non static variables inside constructor
+
+Master constructor
+
+this keyword can be used to access the current class address, but super does not able to 
+    This is a reference variable that refers to the current object - the object whose method or constructor is being called.
+    When you're inside a class, this means "this particular object" or "the current instance".
+
+this() Call Statement
+    What is this()?
+    this() is used to call another constructor of the same class. It's called constructor chaining.
+    Rules for this():
+
+    ✅ Must be the first statement in constructor
+    ✅ Used to call another constructor of the same class
+    ✅ Avoids code duplication
+    ❌ Cannot use this and this() for the same purpose
+
+super and this cannot be used in same block , super and this call statements should be the first statement inside the constructor  
+
+Encapsulation is used to give restriction 
+
+Bean class entire data member must be private , user defined constructor should not be there only default constructor should be there and getter and setter should be present with access modifier public 
+JavaBean Rules:
+
+✅ Must have a public no-argument constructor
+✅ Properties must be private
+✅ Must have public getter and setter methods for properties
+✅ Should be serializable (implement Serializable interface)
+
+RELATIONSHIPS--------------------------------
+(1) Has - A (Aggregation(loose coupling) , Composition(tight coupling))
+(2) Is - A (Inheritance) The parent child relation is known as is-a relation
+
+Compile Time success vs Run time Success / Error / Exception --> study concept
+
+
+Topics to study before it gets too late 
+-------constructor(constructor chaining) , Encapsulation , Relationship--------
+
+INHERITANCE-------------- the process of acquiring the properties from one class in another class 
+
+Can't be inherited while inheriting a parent class(Generalized Class)
+(1) Private members
+(2) constructor
+(3) initializers
+
+Types of Inheritance-------------
+adv of inheritance :- code Reusability, Maintainability
+5 Types
+(1) Single level Inheritance
+(2) Multilevel
+(3) Multiple 
+(4) Hierarchical :- a tree like structure , a parent class inherited by more than 1 class at the same level
+(5) Hybrid
+
+super keyword vs super call statement----------------------
+    (1) super keyword is used to access the properties and behaviours of the parent class
+    (2) super keyword cannot be used to access the parent class address
+    (3) to differentiate the properties of parent class and current class
+
+    (1) if parent class has constructor then it is must to declare constructor in the child class 
+    inside the child class constructor use super call statement 
+    (2) super call statement must be the first statement inside the constructor block
+    (3) super call statement is generated by default by compiler
+    (4) super call statement is used to call the object class constructor
+    (5) super call statement is used to initialize the parent class constructor
+    (6) super call statement can only be used inside constructor block 
+    (7) super call statement can only be used 1 time
+
+
+Multiple inheritance leads to diamond problem :- subclass is confused to call which super class constructor
+
+Typecasting------------------------
+primitive Typecasting         Non primitive Typecasting(converting one clss into another class)
+
+Types of non primitive Typecasting------(you have to perform inheritance only then you can do these typecastings)
+(1) upcasting (converting from sub class ref type to super class ref)
+    upcasting is also used in projects
+    (Q) what is the purpose of upcasting ?
+        to achieve abstraction we do upcasting
+
+        Ex:- 
+            class Alpha {
+                int x = 100;
+                public void m1() {
+                    sout("Alpha class");
+                }
+            }
+
+            class Beta extends Alpha {
+                int y = 200;
+                public void m2() {
+                    sout("Beta class");
+                }
+            }
+
+            class Main {
+                p s v m(String []args) {
+                    Alpha a1 = new Beta() (Anonymous object sub class); now you are able to call the super class memebers only
+                    sout(a1.x);
+                    sout(a1.y);  // throws CTE 
+                }
+            }
+(2) downcasting (converting from super class obj ref to sub class obj ref)
+
+        Ex:- ways of downcasting 
+            (1) B b1 = ne B(); // throws CTE
+
+            (2) 
+                B b1 = (B) new A();  // it is CTS but throws Run time Exception(class cast exception)
+
+            (3) You have to perform upcasting then downcast the same upcasted obj ref
+                A a1 = new B();
+
+                B b1 = (B) a1;
+
+                Use instanceOf operator to check if upcasting is done or not
+                sout(a1 instanceOf  B);  // true
+                sout(a instanceOf B);  // false
+            
+
+
+
+Polymorphism--------------------------------------
+    Polymorphism is an object-oriented programming principle in which the same method name can represent different behaviors, depending on how it is defined (compile time) or which object invokes it (run time).
+
+    1 object Exhibiting multiple behaviours is known as Polymorphism
+
+Types of Polymorphism in Java :- 
+compile time Polymorphism / static Polymorphism / Early binding
+Run time Polymorphism / Dynamic Polymorphism / late binding
+
+1. Compile Time Polymorphism --> if the binding is achieved during on compilation then it is known as CTP (verify Syntax)
+    The method call is resolved during compilation. The compiler determines which method to call at compile time.
+
+2. Run-Time Polymorphism :- The method call is resolved at run time based on the actual object, not the reference type.
+Achieved using method overriding.
+
+    Run-time polymorphism is achieved through two essential mechanisms:
+    1. Inheritance (IS-A relationship)
+    2. Method Overriding
+
+    How it is performed ? 
+        Requires inheritance
+            Method in child class has:
+            Same method name
+            Same parameters
+            Same return type (or covariant)
+            Calls are made using a parent class reference pointing to a child class object
+
+types of CTP
+(1) Overloading ---> method , constructor
+(2) shadowing ---> variable , method
+
+(a) Method Overloading
+    Multiple methods in the same class with the same name but different parameters (different number, type, or order of parameters).
+
+    Why it is called Compile-Time ?
+    The compiler decides which method to call based on the method signature.
+    No object behavior change is involved.
+    Decision happens before execution.
+
+
+(b) Shadowing in Java
+    A variable with the same name in an inner scope hides an outer scope variable
+
+    Types of Shadowing in Java
+        1. Local Variable Shadowing Instance Variable
+
+        class Example {
+            int x = 10;  // Instance variable
+            
+            void display() {
+                int x = 20;  // Local variable shadows instance variable
+                System.out.println(x);        // Prints: 20 (local variable)
+                System.out.println(this.x);   // Prints: 10 (instance variable)
+            }
+        }
+
+        2. Parameter Shadowing Instance Variable
+
+        class Employee {
+            String name;  // Instance variable
+            
+            Employee(String name) {  // Parameter shadows instance variable
+                this.name = name;  // 'this' is needed to access instance variable
+            }
+        }
+
+        3. Block Shadowing
+
+        class Test {
+            void method() {
+                int a = 5;
+                {
+                    int a = 10;  // ERROR in Java! Cannot shadow in nested block
+                    // Java doesn't allow this kind of shadowing within the same method
+                }
+            }
+        }
+
+        4. Static Variable Shadowing (Field Hiding in Inheritance)
+
+        class Parent {
+            static int value = 100;
+        }
+
+        class Child extends Parent {
+            static int value = 200;  // Shadows parent's static variable
+        }
+
+        // Usage:
+        Parent p = new Child();
+        System.out.println(p.value);  // Prints: 100 (resolved at compile-time based on reference type)
+
+        Child c = new Child();
+        System.out.println(c.value);  // Prints: 200
+
+        5. Instance Variable Hiding in Inheritance
+
+        class Parent {
+            int num = 10;
+        }
+
+        class Child extends Parent {
+            int num = 20;  // Shadows parent's instance variable
+        }
+
+        // Usage:
+        Parent obj = new Child();
+        System.out.println(obj.num);  // Prints: 10 (reference type determines which variable)
+
+        Child obj2 = new Child();
+        System.out.println(obj2.num);  // Prints: 20
+
+
+
+we can also overload main method
+your overloaded main methods can be static as well as non static, but the original main method must be static
+
+
+Annotation (@overriden) --> can be used for non static methods 
+static methods cannot be overriden 
+private static and non static cannot be overriden
+abstract methods can be overriden
+
+final method static or non static can be inherited but cannot be overriden
+
+
+ABSTRACTION-------------------------------------
+Hiding the Implementation and showing only the necessary details 
+
+How to achieve abstraction 
+    abstract classes, interface ---> Inheritance, Overriding
+    in abstraction extends and implements keyword are mandetory
+
+Terminology:- 
+    Abstract classes
+    Abstract method
+    concrete class
+    concrete methods
+
+    interface
+    abstract method
+    concrete class
+    concrete methods (can be static methods as well as non static methods)
+
+concrete methods are those methods which have method declarartion as well as method implementation 
+concrete methods can be Static as well as non Static 
+
+you cannot achieve 100% abstraction through abstract classes
+
+static methods cannot be abstract methods (abstract methods will always be non static methods) 
+abstract methods with default [AM] becomes public after being overrided inside the (concrete)sub class
+abstract method declaration must end with semi colon (;)
+you must declare the class as abstract to write abstract methods in it
+you can write abstract as well as concrete methods inside abstract class 
+
+you can make a object ref of an abstract class but you cannot instantiate the abstract class (you can't create anonymous object for abstract class) 
+Upcasting is possible (Make obj ref of abstract class and anonymous object of the Sub class)
+
+
+
+(1) 
+abstract class 
+    | extends
+abstract class
+(a) abstract methods are inherited but can't be overriden (from abstract ---> abstract)
+(b) concrete methods are inherited as well as can be overriden (from abstract ---> abstract and abstract to java class also)
+
+Multiple inheritance is not possible with abstract classes
+
+
+INTERFACE---------------------------------------------
+    100% Abstraction is possible with interface
+    We can also achieve Multiple Inheritance
+
+    Syntax:
+
+        interface interfaceName 
+        {
+            (a) abstract [AM] retType MethodName([formal args]) ;
+
+            (b) [AM] retType MethodName([formal args]);
+        }
+
+        (a) we can declare methods with and without abstract keyword
+        (b) We must not provide method implementation inside interface
+        (c) use extends keyword while inheritance between interfaces
+        (d) here in inheritance between interfaces extends can accept more than 1 super interfaces (n no. of super interfaces)
+        (e) we can implement multiple inheritance with interfaces
+
+    Interface with class in inheritance
+        Interface
+            | (implements)
+        class 
+
+
+        Interface
+            |   (extends)
+        Sub Interface
+            |   (implements)
+        Sub class
+
+
+        interface 1     class      interface 2
+        (implements)   (extends)   (implements)
+
+                       Subclass
+        class Subclass extends Class implements interface 1 , interface 2
+
+
+
+                            interface
+        (implements)        (implements)       (extends)
+        subclass 1          subclass 2         interface
+                                                
+
+    Regular interface (any no of abstract methods)
+    Functional (interface can only accept only 1 abstract method) Annotation needed (@functionalinterface)
+    marker interface 
+
+Interface do not have initializers as well as constructors
+
+
+
+
+
+
+
+
+
+
+
+Final keyword-----------------------------------------
+
+(1) A final variable cannot be reassigned once it is initialized.
+    Types of final variables
+        (a) Final local variable
+        (b) Final instance variable
+        (c) Final static variable
+    Important points
+
+    Final variables must be initialized exactly once.
+    Initialization can be:
+        (a) At declaration
+        (b) Inside a constructor (for instance variables)
+        (c) Inside a static block (for static variables)
+
+Final methods :- are inherited in sub class, final methods can be overloaded , final methods CANNOT be overridden (for both static as well as non static)
+
+(3) final class CANNOT BE INHERITED :- 
+    In Java, a class declared as final cannot be inherited.
+
+    All methods in a final class are implicitly final. Common use case: immutable classes.
+    
+    When you declare a class using the final keyword, you are explicitly preventing other classes from extending it.
+    The compiler enforces this restriction at compile time.
+
+    One-line memory trick :-
+        Final = No Change
+        Variable → no reassignment
+        Method → no overriding
+        Class → no inheritance
+
+
+priority for class
+(1) interface 
+(2) abstract class
+(3) class 
+(4) final class 
+
+Enumeration ---> used to store fixed data with const keyword, used in SERVER SIDE
+
+User derfined libraries & Inbuild libraries
+
+Inbuild libraries
+    import 
+    java
+    (By default present in classes) lang :- Object , System , String class, buffer builder , Exception , Throwable, Thread, Runnable, Array 
+    io :- File ,  Input Stream, Output Stream , 
+    util :- Collection, Collections, Scanner , Arrays, List , Set , Queue, Map
+    sql :- Driver, DriverManager (helper class), Connection, Statement, Prepared Statement, Callable Statement, Result Set
+    awt :- used in spring boot 
+
+Jakata persistance
+
+Ways to access User File
+    (1) import packageName *; (Access all files)
+    (2) import packageName fileName;
+    (3) packageName.fileName objRef = new packageName.fileName();
+
+
+Top-Level Classes
+A top-level class is a class that is defined directly in a source file, not nested inside another class.
+    Key Characteristics:
+
+        Defined directly in a .java file (not nested)
+        Can only be public or package-private (no modifier)
+        If public, the class name must match the filename
+        Only one public top-level class per file
+
+What are NOT Top-Level Classes?
+Any class defined inside another class is NOT a top-level class:
+
+Classes cannot be declared as private and Protected ( private and protected classes can be instantiated, but only from locations where they're accessible according to their access modifier rules. )
+
+    Why classes in Java cannot be declared private or protected (top-level classes):
+
+    (a) Access control applies to members, not compilation units
+        private and protected are designed to restrict access to class members (fields, methods, constructors). A top-level class itself is a compilation unit and must be accessible to be referenced.
+
+    (b) Top-level classes must be accessible from outside their own scope
+        A top-level class needs to be accessible to other classes (at least within the same package). Declaring it private or protected would make it unusable outside its own source file.
+
+    (c) Java’s visibility model is package-centric for top-level classes
+        For top-level classes, Java allows only:
+
+        public → accessible everywhere
+
+        default (package-private) → accessible within the same package
+        protected has no meaning without inheritance, which applies to members, not top-level classes.
+
+initializers must not have any access modifiers (public , default, private , protected)
+constructor can be default and public , protected , private.
+
+NOTE:- Constructors can be declared as private (Ex. in Singleton class)
+Singleton classes have constructor as private.
+Steps to create constructor as private
+    (1) declare constructor as private
+    (2) create a static helper method
+    (3) the helper method must be public with return type as ClassName
+
+
+Protected members can be accessed outside of package but only through public methods we will call public methods
+Copy Constructor :- two objects storing the same memory address
+
+Library---------------------
+    Object Class:- 
+        (a) it is present in lang package
+        (b) Object class is the super most classes for all user defined as well as Inbuild classes
+        (c) It has 11 non static methods
+            (1) toString() :- ret type String, public , it is used to print current class attributes 
+            (2) equals() :- ret type boolean , public 
+            (3) hashCode() :- ret type int, public 
+            (4) getClass() :- ret type Classname , public  retVal :- packageName.clasName@hexadecimal, to get only className :- use getClass().getName(),  it is used to clear unused objects 
+            (5) clone() :- ret type Object , public
+            (6) finalize() :- void , protected
+
+            Following methods are used in Multithreading concept :-
+                (7) notify() :- void , public it is final
+                (8) notifyAll() :- void , public , it is also Final
+                (9) wait() :- void , public , final
+                (10) wait(long millisec) :- void, public , final
+                (11) wait(int i, long millisec) :- void , public , final
+
+(1) toString() method
+    A a = new A();
+    if you have overrided the toString() method inside the current class 
+    then printing obj ref will call the toString() method implicitly
+
+    class A {
+        @Override 
+        public String toString() {
+            return null;
+        }
+    }
+
+    class Main {
+        p s v m(String []args) {
+            A a = new A();
+            s.o.pln(a); // output-> it will print null (implicit call to toString() method)
+            s.o.pln(a.toString()); // output-> explicit call to toString() method
+        }
+    }
+
+(2) equals() method
+    class Book {
+        String bname;
+        Book(String bname) {
+            this.bname = bname;
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            Book b = (Book) obj;
+            return this.bname.equals(b.bname);
+        }
+    }
+
+    Key point: Method belongs to an object, not to the class name
+            equals(Object obj) → your overridden method in Book
+            this.bname.equals(b.bname) → calls String class’s equals() method
+            So you are not calling Book.equals() again.
+
+
+
+
+
+
+
+String Class ----------------------------------------
+    lang package 
+    String class is public , final class 
+    concat(), equals(), trim(), length(), toUppercase(), toLowercase(), charAt() , split() , endswith(), startswith(), replace(), indexOf() , lastIndexOf(), toString(), substring()
+
+
+    (a) Changes in SCP creates a new reference (on updation/modification) so there is wastage of memeory
+    (b) Changes in heap area(non constant pool) do not create a new block of memory evry time updation or
+        modification is done in string , its an advantage of using string object
+
+Study about two types of string declarations (1) String variable (2) String object 
+Study about String Constant pool , and non constant pool
+
+
+
+Exception---------------------------------------------------------
+
+            Throwable
+Error                           Exception
+(a) Virtual Error           
+(b) Assertion Error
+(c) StackOverflow Error
+
+
+
+Collections---------------------------------------------------------
+    variable :- store only one value only 
+
+    Array variable :- can store only homogeneous elements
+    fixed in size
+
+    Object Array :- can store homogenous as well as hetrogeneous classes
+    disadv :- fixed in size
+
+    Collection :- Collections in java is a framework that provides an architecture to store and manipulate the group of objects
+    using collections is better than using variable , array , object array
+    adv :- dynamic size , can store hetrogeneous elements(Except tree map and tree set) , less complexity 
+
+    why do we need to use collection framework ?
+
+    Types of collection framework :- differ in execution
+    (1) collection hierarchy 
+    (2) map hierarachy
+
+    I can do CRUD operations by java collection 
+    in java collections simply means a single unit of objects 
+    Collections framework follow 
+
+    disadv :- data is cleared up in garbage collection
+
+    jdbc :- java database connectivity is better than collection
+
+Object class does not have address 
+
+fundamentals of collection 
+    (1) collection is a container in which n number of individual objects are present  
+    (2) can resize it 
+    (3) any instance added to the collection is upcasted to Object class type(Super most class)
+    (4) iterable interface is parent of collection interface 
+
+
+
+Legacy classes :- vector and stack were launched in java 1.0 version which are thread safe 
+later on launched the collection framework in java 1.2 version
+
+Iterator interface----------------------------------------------
+
+--> forward movement only 
+    Iterator itr = Obj_ref.iterator();
+        methods present in iterator
+        (1) public boolean hasNext() 
+        (2) public Object next() 
+        (3) public void remove() 
+
+        looping through objects
+            while(itr.hasNext()) {
+                itr.next();
+            }
+
+Iterator :- List , Set , Queue
+
+--> descending iterator :- can move in backward direction , can be used only with linked list
+
+Linked list is best for insertion and removing elements faster than ArrayList etc
+go for linked list if you want to do insertion and delition faster
+
+ListIterator interface :- works only in List interface and its subclasses and Linked List
+adv :- forward and backward direction movement is possible 
+
+Inbuild methods :- 
+    (1) public boolean hasNext()
+    (2) public Object next() 
+    (3) public boolean hasPrevious()
+    (4) public Object previous()
+    (5) add() 
+    (6) remove()
+    (7) public int nextIndex()
+    (8) public int previousIndex()
+    (9) set(Object o)
+
+ListIterator itr = Obj_ref.iterator();
+    while(itr.hasNext()) {
+        itr.next();
+    }
+
+    while(itr.hasPrevious()) {
+        itr.previous();
+    }
+
+
+
+List Interface 
+    has index 
+    preserve insertion order
+
+ArrayList  
+    preserver order
+    serializable
+    cloneable
+
+Adv and disadv of ArrayList
+    accessing elem are easy 
+    retrieval op is faster
+
+    insertion and deletion is slower
+    consumes more memory
+
+Linked List
+    
