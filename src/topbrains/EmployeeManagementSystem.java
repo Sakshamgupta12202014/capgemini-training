@@ -44,7 +44,7 @@ class Employee {
     }
 
     public int hashCode() {
-        return 
+        return id;
     }
 }
 
