@@ -229,11 +229,3 @@ class EmployeeManagementSystem {
     }
 }
 
-1. Add Text
-2. Delete Text
-3. Search Word
-4. Replace Word
-5. Undo
-6. Redo
-7. Display Document
-8. Exit
