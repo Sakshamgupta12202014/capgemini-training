@@ -1,0 +1,2 @@
+SQL> 
+SQL> spool "C:\Users\USER\OneDrive\Desktop\SakshamGupta_6928985\assignment_12.txt"

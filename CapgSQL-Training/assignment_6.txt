@@ -1,0 +1,166 @@
+SQL> -- This is assignment 6 --
+
+SQL> -- Q1 WAQTD NUMBER OF EMPLOYEES WORKING IN EACH DEPARTEMENT EXCEPT PRESIDENT.
+SQL> 
+SQL> SELECT COUNT(*) FROM EMP
+  2  WHERE JOB <> 'PRESIDENT'
+  3  GROUP BY DEPTNO;
+
+  COUNT(*)                                                                      
+----------                                                                      
+         6                                                                      
+         5                                                                      
+         2                                                                      
+
+SQL> -- Q2 WAQTD TOTAL SALARY NEEDED TO PAY ALL THE EMPLOYEES IN EACH JOB
+SQL> 
+SQL> SELECT JOB , SUM(SAL) FROM EMP GROUP BY JOB;
+
+JOB         SUM(SAL)                                                            
+--------- ----------                                                            
+CLERK           4150                                                            
+SALESMAN        5600                                                            
+PRESIDENT       5000                                                            
+MANAGER         8275                                                            
+ANALYST         6000                                                            
+
+SQL>  -- Q3 WAQTD NUMBER OF EMPLOYEES WORKING AS MANAGER IN EACH DEPARTMENT
+SQL> 
+SQL> SELECT COUNT(*) FROM EMP WHERE JOB = 'MANAGER' GROUP BY DEPTNO;
+
+  COUNT(*)                                                                      
+----------                                                                      
+         1                                                                      
+         1                                                                      
+         1                                                                      
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1*  SELECT COUNT(*), DEPTNO FROM EMP WHERE JOB = 'MANAGER' GROUP BY DEPTNO
+SQL> /
+
+  COUNT(*)     DEPTNO                                                           
+---------- ----------                                                           
+         1         30                                                           
+         1         20                                                           
+         1         10                                                           
+
+SQL> -- Q4 WAQTD avg salary needed to pay all the employees in each department excluding deptno 20
+SQL> 
+SQL> SELECT DEPTNO, AVG(SAL) FROM EMP WHERE DEPTNO <> 20 GROUP BY DEPTNO;
+
+    DEPTNO   AVG(SAL)                                                           
+---------- ----------                                                           
+        30 1566.66667                                                           
+        10 2916.66667                                                           
+
+SQL>  -- Q5 WAQTD number of employees having character 'A' in their names in each job
+SQL> 
+SQL> SELECT JOB, COUNT(*) FROM EMP WHERE ENAME LIKE '%A%' GROUP BY JOB;
+
+JOB         COUNT(*)                                                            
+--------- ----------                                                            
+SALESMAN           3                                                            
+CLERK              2                                                            
+MANAGER            2                                                            
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1* SELECT ENAME, COUNT(*) FROM EMP WHERE ENAME LIKE '%A%' GROUP BY JOB, ENAME
+SQL> /
+
+ENAME        COUNT(*)                                                           
+---------- ----------                                                           
+WARD                1                                                           
+CLARK               1                                                           
+BLAKE               1                                                           
+ADAMS               1                                                           
+MARTIN              1                                                           
+JAMES               1                                                           
+ALLEN               1                                                           
+
+7 rows selected.
+
+SQL> -- Q6 WAQTD number of employees and avg salary whose salary is greater than 2000 in each department
+SQL> 
+SQL> SELECT deptno,
+  2         COUNT(*) AS emp_count,
+  3         AVG(sal) AS avg_salary
+  4  FROM emp
+  5  WHERE sal > 2000
+  6  GROUP BY deptno;
+
+    DEPTNO  EMP_COUNT AVG_SALARY                                                
+---------- ---------- ----------                                                
+        30          1       2850                                                
+        20          3 2991.66667                                                
+        10          2       3725                                                
+
+SQL> -- Q7 WAQTD total salary needed to pay and number of SALESMAN in each department
+SQL> 
+SQL> SELECT deptno,
+  2  COUNT(*), SUM(sal)
+  3  FROM emp
+  4  WHERE job = 'SALESMAN'
+  5  GROUP BY deptno;
+
+    DEPTNO   COUNT(*)   SUM(SAL)                                                
+---------- ---------- ----------                                                
+        30          4       5600                                                
+
+SQL> -- Q8 WAQTD number of employees with their maximum salaries in each job
+SQL> 
+SQL> SELECT job,
+  2  COUNT(*), MAX(sal)
+  3  FROM emp
+  4  GROUP BY job;
+
+JOB         COUNT(*)   MAX(SAL)                                                 
+--------- ---------- ----------                                                 
+CLERK              4       1300                                                 
+SALESMAN           4       1600                                                 
+PRESIDENT          1       5000                                                 
+MANAGER            3       2975                                                 
+ANALYST            2       3000                                                 
+
+SQL> -- Q9 WAQTD MAXIMUM SALARIES GIVEN TO AN EMPLOYEE WORKING IN EACH DEPT.
+SQL> 
+SQL> SELECT deptno, MAX(sal)
+  2  FROM emp
+  3  GROUP BY deptno;
+
+    DEPTNO   MAX(SAL)                                                           
+---------- ----------                                                           
+        30       2850                                                           
+        20       3000                                                           
+        10       5000                                                           
+
+SQL> -- Q10 WAQTD NUMBER OF TIMES THE SALARIES PRESENT IN EMPLOYEE TABLE.
+SQL> 
+SQL> SELECT sal, COUNT(*)
+  2  FROM emp
+  3  GROUP BY sal;
+
+       SAL   COUNT(*)                                                           
+---------- ----------                                                           
+      2450          1                                                           
+      5000          1                                                           
+      1300          1                                                           
+      1250          2                                                           
+      2850          1                                                           
+      2975          1                                                           
+      1100          1                                                           
+      3000          2                                                           
+       800          1                                                           
+      1600          1                                                           
+      1500          1                                                           
+
+       SAL   COUNT(*)                                                           
+---------- ----------                                                           
+       950          1                                                           
+
+12 rows selected.
+
+SQL> SPOOL OFF

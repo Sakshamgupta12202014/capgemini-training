@@ -1,1 +1,15 @@
-/bin
+# Eclipse workspace
+.metadata/
+
+# Java build
+bin/
+target/
+*.class
+
+# Eclipse configs
+.settings/
+.project
+.classpath
+
+# Logs
+*.log
