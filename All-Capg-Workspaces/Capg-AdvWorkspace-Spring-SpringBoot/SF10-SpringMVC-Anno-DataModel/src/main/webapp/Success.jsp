@@ -1,5 +1,4 @@
 <h1>Login Successful</h1>
-
 <table border="1">
     <tr>
         <th>User Name</th>
