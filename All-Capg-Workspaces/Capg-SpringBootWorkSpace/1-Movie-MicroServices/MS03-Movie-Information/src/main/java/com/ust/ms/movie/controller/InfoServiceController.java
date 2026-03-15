@@ -21,6 +21,7 @@ public class InfoServiceController {
 
 	@Autowired
 	RestTemplate rest;
+	
 	//http://localhost:9091/info/list/1001
 	@RequestMapping("/list/{movid}")
 	public List<Movie> getAllData(@PathVariable("movid") int  id){
