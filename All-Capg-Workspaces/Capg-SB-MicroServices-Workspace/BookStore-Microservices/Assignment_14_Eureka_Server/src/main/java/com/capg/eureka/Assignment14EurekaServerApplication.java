@@ -10,6 +10,7 @@ public class Assignment14EurekaServerApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(Assignment14EurekaServerApplication.class, args);
+		System.out.println("Book Store Eureka Server started");
 	}
 
 }

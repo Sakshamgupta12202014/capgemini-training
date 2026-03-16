@@ -13,5 +13,4 @@ public class Assignment14OrderServiceApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(Assignment14OrderServiceApplication.class, args);
 	}
-
 }

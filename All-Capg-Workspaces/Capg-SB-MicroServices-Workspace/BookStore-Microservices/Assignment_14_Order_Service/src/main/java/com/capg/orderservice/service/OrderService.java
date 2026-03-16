@@ -41,11 +41,14 @@ public class OrderService implements OrderServiceInt{
 	@Override
 	public Order addOrder(Order orderRequest) {
 		Book book = bookClient.getBookById(orderRequest.getBookId());
+		if(book == null){
+		    throw new RuntimeException("Book not found");
+		}
 		double totalPrice = orderRequest.getQuantity() * book.getPrice();
 		orderRequest.setTotalPrice(totalPrice);
 		
-		em.merge(orderRequest);
-		return orderRequest;
+		Order saved = em.merge(orderRequest);
+		return saved;
 	}
 
 	@Override

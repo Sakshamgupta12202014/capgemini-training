@@ -4,23 +4,17 @@ package com.capg.orderservice.model;
 public class Book {
 	
 	
-	private long id;
-	
-	
+	private Long id;
 	private String title;
-	
 	private String author;
-	
-	private String isBn;
-	
+	private String isbn;
 	private double price;
-	
 	private int quantity;
 	private String category;
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getTitle() {
@@ -36,10 +30,10 @@ public class Book {
 		this.author = author;
 	}
 	public String getIsBn() {
-		return isBn;
+		return isbn;
 	}
-	public void setIsBn(String isBn) {
-		this.isBn = isBn;
+	public void setIsBn(String isbn) {
+		this.isbn = isbn;
 	}
 	public double getPrice() {
 		return price;
@@ -59,12 +53,12 @@ public class Book {
 	public void setCategory(String category) {
 		this.category = category;
 	}
-	public Book(long id, String title, String author, String isBn, double price, int quantity, String category) {
+	public Book(Long id, String title, String author, String isbn, double price, int quantity, String category) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.author = author;
-		this.isBn = isBn;
+		this.isbn = isbn;
 		this.price = price;
 		this.quantity = quantity;
 		this.category = category;

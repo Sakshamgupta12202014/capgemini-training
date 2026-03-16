@@ -45,7 +45,7 @@ public class BookService implements BookServiceInt{
 		bookToUpdate.setQuantity(book.getQuantity());
 		
 		em.merge(bookToUpdate);
-		return book;
+		return bookToUpdate;
 	}
 
 	@Override

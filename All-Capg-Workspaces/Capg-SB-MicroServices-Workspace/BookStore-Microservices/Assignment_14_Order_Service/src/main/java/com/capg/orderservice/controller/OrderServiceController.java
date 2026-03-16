@@ -37,7 +37,7 @@ public class OrderServiceController {
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Order> getOrderById(@PathVariable("id") int id) {
+	public ResponseEntity<Order> getOrderById(@PathVariable("id") long id) {
 		
 		Order order = service.getOrderById(id);
 		
@@ -56,7 +56,7 @@ public class OrderServiceController {
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<Order> updateOrder(@PathVariable int id) {
+	public ResponseEntity<Order> updateOrder(@PathVariable long id) {
 		Order updatedOrder = service.updateOrder(id);
 		if(updatedOrder == null) {
 			return new ResponseEntity<>(null, new HttpHeaders(), HttpStatus.NOT_FOUND);
@@ -67,7 +67,7 @@ public class OrderServiceController {
 	}
 	
 	@DeleteMapping("/{id}")
-	public ResponseEntity<Void> cancelOrder(@PathVariable int id) {
+	public ResponseEntity<Void> cancelOrder(@PathVariable long id) {
 		service.cancelOrder(id);
 		
 		return ResponseEntity.noContent().build();

@@ -16,10 +16,10 @@ public class Order {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
-	private long id;
+	private Long id;
 	
 	@Column(nullable=false)
-	private long bookId;
+	private Long bookId;
 	
 	@Column(nullable=false)
 	private String customerName;
@@ -28,7 +28,7 @@ public class Order {
 	private int quantity;
 	
 	@Column
-	private double totalPrice;
+	private Double totalPrice;
 	
 	@Column
 	private String status;
@@ -46,7 +46,7 @@ public class Order {
 		this.orderDate = LocalDate.now();
 	}
 
-	public Order(long id, long bookId, String customerName, int quantity, double totalPrice, String status,
+	public Order(Long id, Long bookId, String customerName, int quantity, double totalPrice, String status,
 			LocalDate localDate) {
 		super();
 		this.id = id;
@@ -60,19 +60,19 @@ public class Order {
 	
 	public Order() {}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public long getBookId() {
+	public Long getBookId() {
 		return bookId;
 	}
 
-	public void setBookId(long bookId) {
+	public void setBookId(Long bookId) {
 		this.bookId = bookId;
 	}
 
@@ -92,11 +92,11 @@ public class Order {
 		this.quantity = quantity;
 	}
 
-	public double getTotalPrice() {
+	public Double getTotalPrice() {
 		return totalPrice;
 	}
 
-	public void setTotalPrice(double totalPrice) {
+	public void setTotalPrice(Double totalPrice) {
 		this.totalPrice = totalPrice;
 	}
 
@@ -108,11 +108,11 @@ public class Order {
 		this.status = status;
 	}
 
-	public LocalDate getLocalDate() {
+	public LocalDate getOrderDate() {
 		return orderDate;
 	}
 
-	public void setLocalDate(LocalDate localDate) {
+	public void setOrderDate(LocalDate localDate) {
 		this.orderDate = localDate;
 	}
 	

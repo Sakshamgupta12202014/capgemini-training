@@ -13,7 +13,7 @@ public class Book {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
-	private long id;
+	private Long id;
 	
 	@Column(nullable=false)
 	private String title;
@@ -22,7 +22,7 @@ public class Book {
 	private String author;
 	
 	@Column(unique=true)
-	private String isBn;
+	private String isbn;
 	
 	@Column(nullable=false)
 	private double price;
@@ -48,10 +48,10 @@ public class Book {
 		this.author = author;
 	}
 	public String getIsBn() {
-		return isBn;
+		return isbn;
 	}
 	public void setIsBn(String isBn) {
-		this.isBn = isBn;
+		this.isbn = isBn;
 	}
 	public double getPrice() {
 		return price;
@@ -71,12 +71,12 @@ public class Book {
 	public void setCategory(String category) {
 		this.category = category;
 	}
-	public Book(long id, String title, String author, String isBn, double price, int quantity, String category) {
+	public Book(Long id, String title, String author, String isbn, double price, int quantity, String category) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.author = author;
-		this.isBn = isBn;
+		this.isbn = isbn;
 		this.price = price;
 		this.quantity = quantity;
 		this.category = category;
