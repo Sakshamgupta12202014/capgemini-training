@@ -47,10 +47,10 @@ public class Book {
 	public void setAuthor(String author) {
 		this.author = author;
 	}
-	public String getIsBn() {
+	public String getIsbn() {
 		return isbn;
 	}
-	public void setIsBn(String isBn) {
+	public void setIsbn(String isBn) {
 		this.isbn = isBn;
 	}
 	public double getPrice() {

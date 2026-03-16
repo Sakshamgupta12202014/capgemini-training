@@ -9,12 +9,12 @@ spring:
         - id: book-service
           uri: lb://BOOK-SERVICE
           predicates:
-            - Path=/book/**
+            - Path=/api/books/**
 
         - id: order-service
           uri: lb://ORDER-SERVICE
           predicates:
-            - Path=/order/**
+            - Path=/api/orders/**
 
 
 eureka:

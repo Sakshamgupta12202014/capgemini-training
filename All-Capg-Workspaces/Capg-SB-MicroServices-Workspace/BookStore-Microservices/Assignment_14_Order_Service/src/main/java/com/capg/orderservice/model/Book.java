@@ -29,10 +29,10 @@ public class Book {
 	public void setAuthor(String author) {
 		this.author = author;
 	}
-	public String getIsBn() {
+	public String getIsbn() {
 		return isbn;
 	}
-	public void setIsBn(String isbn) {
+	public void setIsbn(String isbn) {
 		this.isbn = isbn;
 	}
 	public double getPrice() {

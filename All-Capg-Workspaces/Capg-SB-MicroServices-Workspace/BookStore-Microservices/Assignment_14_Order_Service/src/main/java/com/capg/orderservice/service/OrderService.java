@@ -47,8 +47,8 @@ public class OrderService implements OrderServiceInt{
 		double totalPrice = orderRequest.getQuantity() * book.getPrice();
 		orderRequest.setTotalPrice(totalPrice);
 		
-		Order saved = em.merge(orderRequest);
-		return saved;
+		em.persist(orderRequest);
+		return orderRequest;
 	}
 
 	@Override

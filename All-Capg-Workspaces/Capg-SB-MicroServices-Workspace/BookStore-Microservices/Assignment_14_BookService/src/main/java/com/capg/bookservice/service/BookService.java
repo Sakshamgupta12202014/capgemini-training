@@ -33,7 +33,8 @@ public class BookService implements BookServiceInt{
 
 	@Override
 	public Book addBook(Book book) {
-		return em.merge(book);
+		em.persist(book);
+		return book;
 	}
 
 	@Override
